@@ -1,4 +1,4 @@
-class Projects{
-    name: string= '';
-    blurb: string='';
-}
+// class Projects{
+//     name: string= '';
+//     blurb: string='';
+// }
