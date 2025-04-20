@@ -1,0 +1,89 @@
+#root {
+  width: 100%;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items:flex-start;
+  width: 100%;
+}
+.navigationbar{
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow:0px 1px 15px lightgrey;
+  padding-left: 25px;
+  padding-right:25px;
+ 
+  
+}
+.navRight{
+  display: flex;
+  justify-content: space-between;
+  min-width: 30%;
+}
+.welcome{
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.welcomeLeft{
+  
+  max-width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.profilePic{
+  max-width: 40%;
+  border-radius: 100%;
+}
+
+.blurb{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 1px 15px lightgrey;
+  margin: 75px;
+  border-radius: 25px;
+  padding:25px;
+}
+
+.footer{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(243, 243, 243); 
+  padding: 75px;
+  border-top-left-radius: 75px;
+  border-top-right-radius: 75px;
+}
+.footerLeft{
+  display:flex;
+  justify-content: flex-start;
+  
+}
+.footerRight{
+  display:flex;
+  justify-content: flex-start;
+  
+}
+.contactCard{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+.contactBlurb{
+  box-shadow: 0px 1px 15px lightgrey;
+  padding: 25px;
+  margin:25px;
+  border-radius: 25px;
+  width: 40%;
+}
+
