@@ -1,8 +1,9 @@
 
 import './App.css'
+import { useState } from 'react';
 
 
-function NavigationBar({ onContactClick }: { onContactClick: () => void }) {
+function NavigationBar({ setPage }: { setPage: React.Dispatch<React.SetStateAction<number>> }) {
   return (
     <>
       <div className="navigationbar">
@@ -10,9 +11,9 @@ function NavigationBar({ onContactClick }: { onContactClick: () => void }) {
           <h2>Judes Portfolio</h2>
         </div>
         <div className="navRight">
-          <button>Home</button>
-          <button>Projects</button>
-          <button onClick={onContactClick}> Contact Me</button>
+          <button onClick={() => setPage(1)}>Home</button>
+          <button onClick={() => setPage(2)}> Projects </button>
+          <button onClick={() => setPage(3)}> Contact Me</button>
         </div>
       </div>
     </>
@@ -81,17 +82,12 @@ function ContactMe() {
   )
 }
 
-var page="home";
-
-function ContactClick(){
-  page="contact"; 
-}
 function App() {
-  if (page.localeCompare('home') == 0) {
+  const [page, setPage] = useState<number>(1);
+  if (page==1) {
     return (
       <>
-        <NavigationBar onContactClick={ContactClick} />
-
+        <NavigationBar setPage={setPage} />
         <WelcomePanel />
         <IntroBlurb />
 
@@ -99,10 +95,17 @@ function App() {
     )
 
   }
-  else if (page.localeCompare("contact") == 0) {
+  else if(page==2){
+    return(
+      <>
+      <NavigationBar setPage={setPage} />
+      </>
+    )
+  }
+  else if (page==3) {
     return (
       <>
-        <NavigationBar onContactClick={ContactClick} />
+        <NavigationBar setPage={setPage} />
         <ContactMe />
       </>
     )
@@ -111,7 +114,6 @@ function App() {
   else {
     return (
       <>
-
       </>
     )
   }
