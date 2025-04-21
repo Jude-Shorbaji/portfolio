@@ -1,7 +1,7 @@
 
 import './App.css'
 import { useState } from 'react';
-import { Project } from '.src/Project';
+import { Project } from './Project';
 
 
 function NavigationBar({ setPage }: { setPage: React.Dispatch<React.SetStateAction<number>> }) {
