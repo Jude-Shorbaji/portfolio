@@ -1,6 +1,7 @@
 
 import './App.css'
 import { useState } from 'react';
+import { Project } from './Project';
 
 
 function NavigationBar({ setPage }: { setPage: React.Dispatch<React.SetStateAction<number>> }) {
@@ -82,8 +83,33 @@ function ContactMe() {
   )
 }
 
+function initializeProjects(){
+  let front: Project=new Project("Portfolio","This portfolio project is the culmination of my previous technical skills and a learning experience on front-end and back-end development.This project was my introduction to React, building on my prior knowledge of HTML and CSS, and doubling as an opportunity to learn TypeScript. While I already had some experience with JavaScript, adapting to TypeScript syntax came with a learning curve. I also used this project to dive deeper into CSS flexbox, so the website is fully responsive—go ahead and resize the window to see it adjust in real time! Back End:Each project is stored using a Project class and organized within a Doubly Linked Circular List, applying concepts from my data structures coursework. I used this structure to create a rotating carousel that showcases my projects dynamically.",null,null,"jude.shorbaji.com");
+  front.setNext(new Project("Method at HackRU Fall 2024", "Our team was inspired to create this because websites for studying spread resources across multiple websites and confused students on how to study. Our website solves the confusion of choosing a study method by creating a space where science-proven methods are combined in one workspace, with no distracting pop-ups, ads, or subscription services. Our website is designed to help its users study more effectively by implementing some of the most productive study methods, such as the Feynman technique, Mnemonic Technique, and Leitman technique. Additionally, it utilizes the Pomodoro method to help the user stay on task through 25 minute intervals. They can choose which study method they want and they will be taken to a new page where they can commence their studying using that technique.",front,front,"https://devpost.com/software/study-method"));
+  front.setPrev(front.getNext()?.getNext() ?? front);
+  return front;
+}
+
+function displayProjects(curr: Project | null, setCurr: React.Dispatch<React.SetStateAction<Project | null>>) {
+ 
+ return(
+  <>
+  <div className="projDisplay">
+  <button onClick={() => { if (curr && curr.getPrev()) { setCurr(curr.getPrev()); } }}>&lt;</button>
+  <div className='project'>
+  <h2>{curr ? curr.getName() : ''}</h2>
+  <h3 >{curr ? curr.getBlurb(): ""}</h3>
+  <a href={curr ? curr?.getLink() : ""}>Link for More</a>
+  </div>
+   <button onClick={()=> {if(curr&&curr.getNext()){setCurr(curr.getNext())}}}>&gt;</button>
+  </div>
+  </>
+ )
+}
+
 function App() {
   const [page, setPage] = useState<number>(1);
+  const [curr, setCurr] = useState<Project | null>(initializeProjects());
   if (page==1) {
     return (
       <>
@@ -99,6 +125,9 @@ function App() {
     return(
       <>
       <NavigationBar setPage={setPage} />
+
+      {displayProjects(curr, setCurr)}
+      
       </>
     )
   }

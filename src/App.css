@@ -86,4 +86,15 @@ body{
   border-radius: 25px;
   width: 40%;
 }
+.projDisplay{
+  display:flex;
+  justify-content: space-around;
+}
+.project{
+  padding: 25px;
+  margin:25px;
+  box-shadow: 0px 1px 15px lightgrey;
+  border-radius: 25px;
+
+}
 
