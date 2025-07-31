@@ -25,7 +25,7 @@ function WelcomePanel() {
     <>
       <div className='welcome'>
         <div className='welcomeLeft'>
-          <img src={'/src/assets/ProfilePicture.jpg'} className='profilePic'></img>
+          <img src={"/public/src/assets/ProfilePicture.jpg"} className='profilePic'></img>
         </div>
         <div className='welcomeRight'>
           <h1>Jude Shorbaji</h1>
