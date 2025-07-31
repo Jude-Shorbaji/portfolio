@@ -25,12 +25,12 @@ function WelcomePanel() {
     <>
       <div className='welcome'>
         <div className='welcomeLeft'>
-          <img src='src/assets/ProfilePicture.jpg' className='profilePic'></img>
+          <img src={"/ProfilePicture.jpg"} alt="" className='profilePic'></img>
         </div>
         <div className='welcomeRight'>
           <h1>Jude Shorbaji</h1>
-          <h2>Rutgers Undergraduate Computer Science Major </h2>
-          <h3>With a Concentration in Psychology</h3>
+          <h3>Rutgers Undergraduate Computer Science Major </h3>
+          <h3>Concentration in General Psychology</h3>
         </div>
       </div>
     </>
