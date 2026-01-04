@@ -93,7 +93,7 @@ function ContactMe() {
 function initializeProjects() {
   const front: Project = new Project(
     "Training a VLA with Lerobot",
-    "Over the winter break, I obtained an open-source Visual Language Action model and robot arm produced by Lerobot. Using their prebuilt PyTorch tools, I collected data to fine-tune their VLA for my environment, enabling my robot arm to pick up a green LEGO block and place it into a box. Although the task seemed simple, this was my first time working on a project with physical limitations, and I quickly encountered several challenges regarding my setup. From a robot part breaking due to a servo motor failure, to creating lighting that prevented shadows and maintained homogeneity in the data I collected, troubleshooting my hardware took a large portion of my time, and I learned a lot about how resource-consuming data collection in robotics can be. This project was also a great introduction to some of the technical skills and terms in robotics and machine learning. I learned the difference between a locomotive and a manipulative robot, as well as the difference between imitation and reinforcement training. I also learned more about resources such as Hugging Face, a platform that makes it easy to store and share data and models, and Google Colab, which I used to borrow a more powerful GPU and speed up the training process. Overall, working with this robot arm was an informative and educational experience, and I hope to continue working with open source projects similar to Lerobot and to continue to expand my knowledge on VLAs and similar machine learning models. Attatched bellow are videos of my process and the result",
+    "Over the winter break, I obtained an open-source Visual Language Action model and robot arm produced by Lerobot. Using their prebuilt PyTorch tools, I collected data to fine-tune their VLA for my environment, enabling my robot arm to pick up a green LEGO block and place it into a box. Although the task seemed simple, this was my first time working on a project with physical limitations, and I quickly encountered several challenges regarding my setup. From a robot part breaking due to a servo motor failure, to creating lighting that prevented shadows and maintained homogeneity in the data I collected, troubleshooting my hardware took a large portion of my time, and I learned a lot about how resource-consuming data collection in robotics can be. This project was also a great introduction to some of the technical skills and terms in robotics and machine learning. I learned the difference between a locomotive and a manipulative robot, as well as the difference between imitation and reinforcement training. I also learned more about resources such as Hugging Face, a platform that makes it easy to store and share data and models, and Google Colab, which I used to borrow a more powerful GPU and speed up the training process. Overall, working with this robot arm was an informative and educational experience, and I hope to continue working with open source projects similar to Lerobot and to continue to expand my knowledge on VLAs and similar machine learning models. Attatched bellow are videos of my process and the result.",
     null,
     null,
     ""
@@ -107,18 +107,17 @@ function initializeProjects() {
       "jude.shorbaji.com"
     )
   );
-  if (front.getNext() != null) {
-    front
-      .getNext()
-      .setNext(
-        new Project(
-          "Method at HackRU Fall 2024",
-          "Our team was inspired to create this because websites for studying spread resources across multiple websites and confused students on how to study. Our website solves the confusion of choosing a study method by creating a space where science-proven methods are combined in one workspace, with no distracting pop-ups, ads, or subscription services. Our website is designed to help its users study more effectively by implementing some of the most productive study methods, such as the Feynman technique, Mnemonic Technique, and Leitman technique. Additionally, it utilizes the Pomodoro method to help the user stay on task through 25 minute intervals. They can choose which study method they want and they will be taken to a new page where they can commence their studying using that technique.",
-          front,
-          front,
-          "https://devpost.com/software/study-method"
-        )
-      );
+  const second = front.getNext();
+  if (second != null) {
+    second.setNext(
+      new Project(
+        "Method at HackRU Fall 2024",
+        "Our team was inspired to create this because websites for studying spread resources across multiple websites and confused students on how to study. Our website solves the confusion of choosing a study method by creating a space where science-proven methods are combined in one workspace, with no distracting pop-ups, ads, or subscription services. Our website is designed to help its users study more effectively by implementing some of the most productive study methods, such as the Feynman technique, Mnemonic Technique, and Leitman technique. Additionally, it utilizes the Pomodoro method to help the user stay on task through 25 minute intervals. They can choose which study method they want and they will be taken to a new page where they can commence their studying using that technique.",
+        front,
+        front,
+        "https://devpost.com/software/study-method"
+      )
+    );
   }
   front.setPrev(front.getNext()?.getNext() ?? front);
   return front;
@@ -142,7 +141,7 @@ function displayProjects(
         </button>
         <div className="project">
           <h2>{curr ? curr.getName() : ""}</h2>
-          <p>{curr ? curr.getBlurb() : ""}</p>
+          <h3>{curr ? curr.getBlurb() : ""}</h3>
           <a href={curr ? curr?.getLink() : ""}>Link for More</a>
         </div>
         <button
